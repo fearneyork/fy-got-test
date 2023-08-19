@@ -10,13 +10,26 @@ export type TGOTState = {
   getRandomQuote: () => Promise<void>
 };
 
-const applyQuote = (housesAndQuotes: THousesList, quote: TRandomQuote) => {
-  const character = quote.character.name
-  const house = quote.character.house
+const applyQuote = (housesAndQuotes: THousesList, randomQuote: TRandomQuote) => {
+  const memberSlug = randomQuote.character.slug;
+  const houseSlug = randomQuote.character.house.slug;
+  const quote = randomQuote.sentence;
+  const updatedHouses = [...housesAndQuotes];
 
-  const houseToUpdate = housesAndQuotes.findIndex(house => house.members.find(member => member.name === character));
+  const houseIndex = housesAndQuotes.findIndex(house => house.slug === houseSlug);
+  const memberIndex = housesAndQuotes[houseIndex].members.findIndex(member => member.slug === memberSlug);
+  const existingQuotes = updatedHouses[houseIndex].members[memberIndex].quotes
 
-}
+  if (existingQuotes !== undefined) {
+    updatedHouses[houseIndex].members[memberIndex].quotes = [...existingQuotes, quote]
+  } else {
+    updatedHouses[houseIndex].members[memberIndex] = {
+      ...updatedHouses[houseIndex].members[memberIndex],
+      quotes: [quote]
+    }
+  }
+  return updatedHouses
+};
 
 
 const useStore = create<TGOTState>((set, get) => ({
@@ -36,7 +49,7 @@ const useStore = create<TGOTState>((set, get) => ({
     const randomQuote = await getRandomQuote();
     const housesAndQuotesState = get().housesAndQuotes
     if (housesAndQuotesState !== null) {
-      applyQuote(housesAndQuotesState, randomQuote)
+      set((_state) => ({ housesAndQuotes: applyQuote(housesAndQuotesState, randomQuote) }))
     }
     set((_state) => ({
       loading: false,

@@ -5,6 +5,7 @@ import { getRandomQuote } from './utils/axios';
 import useStore, { TGOTState } from './utils/store';
 import { shallow } from 'zustand/shallow';
 import { QuoteButton } from './components/quotes-button';
+import { CurrentRandomQuote } from './components/current-random-quote';
 
 
 const selector = (state: TGOTState) => ({
@@ -28,6 +29,8 @@ function App() {
       <section>
         <h2>Quote section</h2>
         <QuoteButton></QuoteButton>
+        <CurrentRandomQuote />
+
       </section>
       <section>
         <h2>Houses section</h2>

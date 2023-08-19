@@ -6,7 +6,6 @@ const BASE_URL = 'https://api.gameofthronesquotes.xyz/v1'
 export const getRandomQuote = async (): Promise<TRandomQuote> => {
   try {
     const { data } = await axios.get<TRandomQuote>(`${BASE_URL}/random`)
-    console.log('DATA', data);
     return data;
   } catch (error) {
     throw new Error('Some witty GoT themed error message')
@@ -16,7 +15,6 @@ export const getRandomQuote = async (): Promise<TRandomQuote> => {
 export const getHousesList = async (): Promise<THousesList> => {
   try {
     const { data } = await axios.get<THousesList>(`${BASE_URL}/houses`)
-    console.log('DATA', data);
     return data;
   } catch (error) {
     throw new Error('Some witty GoT themed error message')
