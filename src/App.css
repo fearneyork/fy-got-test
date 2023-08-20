@@ -41,6 +41,6 @@
 @font-face {
   font-family: "GameOfThrones";
   src: local("GameOfThrones"),
-    url("./assets/GameOfThrones.ttf") format("truetype");
+    url("../src/assets/Game\ of\ Thrones.ttf") format("truetype");
 
 }

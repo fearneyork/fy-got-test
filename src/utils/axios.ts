@@ -1,22 +1,22 @@
-import axios from "axios";
-import { THousesList, TRandomQuote } from "./types";
+import axios from 'axios';
+import { THousesList, TRandomQuote } from './types';
+import { API_ERROR, BASE_URL } from './constants';
 
-const BASE_URL = 'https://api.gameofthronesquotes.xyz/v1'
 
 export const getRandomQuote = async (): Promise<TRandomQuote> => {
   try {
-    const { data } = await axios.get<TRandomQuote>(`${BASE_URL}/random`)
-    return data;
+    const res = await axios.get<TRandomQuote>(`${BASE_URL}/random`)
+    return res?.data;
   } catch (error) {
-    throw new Error('Some witty GoT themed error message')
+    throw API_ERROR;
   };
 };
 
 export const getHousesList = async (): Promise<THousesList> => {
   try {
-    const { data } = await axios.get<THousesList>(`${BASE_URL}/houses`)
-    return data;
+    const res = await axios.get<THousesList>(`${BASE_URL}/houses`)
+    return res?.data;
   } catch (error) {
-    throw new Error('Some witty GoT themed error message')
+    throw API_ERROR;
   };
 };
