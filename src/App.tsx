@@ -1,17 +1,29 @@
-import React, { useCallback, useEffect } from 'react';
-import logo from './logo.svg';
+import { useCallback, useEffect } from 'react';
 import './App.css';
-import { getRandomQuote } from './utils/axios';
-import useStore, { TGOTState } from './utils/store';
-import { shallow } from 'zustand/shallow';
+import useStore from './utils/store';
 import { QuoteButton } from './components/quotes-button';
 import { CurrentRandomQuote } from './components/current-random-quote';
+import styled from 'styled-components';
+import QuotesSection from './components/quotes-section';
+import HouseSection from './components/houses-section';
 
+const Container = styled.div`
+  background-color: rgb(20 20 20);
+  width: 100vw;
+  height: 100vh;
+`;
 
-const selector = (state: TGOTState) => ({
-  housesAndQuotes: state.housesAndQuotes,
-  fetchIntialState: state.fetchIntialState,
-});
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  `;
+
+const HeaderText = styled.h1`
+  font-family: GameOfThrones;
+  color: rgb(230 230 230);
+  align-self: center;
+`;
 
 function App() {
   const fetchIntialState = useStore(useCallback(state => state.fetchIntialState, []));
@@ -21,24 +33,17 @@ function App() {
     fetchIntialState()
   }, [fetchIntialState])
 
-  return (<>
-    <header>
-      <h1></h1>
-    </header>
-    <main className="App">
-      <section>
-        <h2>Quote section</h2>
-        <QuoteButton></QuoteButton>
-        <CurrentRandomQuote />
-
-      </section>
-      <section>
-        <h2>Houses section</h2>
-        <>{JSON.stringify(housesAndQuotes)}</>
-      </section>
-    </main>
-    <footer></footer>
-  </>
+  return (
+    <Container>
+      <Header>
+        <HeaderText>Game of Quotes</HeaderText>
+      </Header>
+      <main className="App">
+        <QuotesSection />
+        <HouseSection />
+      </main>
+      <footer></footer>
+    </ Container >
   );
 }
 
