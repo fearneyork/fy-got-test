@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { THouseMemberSlug, THouseSlug, THousesList, TRandomQuote } from "./types";
+import { THousesList, TRandomQuote } from "./types";
 import { getHousesList, getRandomQuote } from "./axios";
 
 export type TGOTState = {

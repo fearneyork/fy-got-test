@@ -8,7 +8,14 @@ const RandomQuote = styled.p`
 
 export const CurrentRandomQuote = () => {
   const currentQuote = useStore(state => state.currentRandomQuote);
+  if (currentQuote === null) {
+    return (
+      <RandomQuote>
+        No Quote Yet!
+      </RandomQuote>
+    )
+  }
   return (
-    <RandomQuote>{`${currentQuote?.sentence}`}</RandomQuote>
+    <RandomQuote>{`"${currentQuote?.sentence}" - ${currentQuote?.character.name}`}</RandomQuote>
   )
 }

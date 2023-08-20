@@ -1,19 +1,18 @@
 import { useCallback, useEffect } from 'react';
 import './App.css';
 import useStore from './utils/store';
-import { QuoteButton } from './components/quotes-button';
-import { CurrentRandomQuote } from './components/current-random-quote';
 import styled from 'styled-components';
 import QuotesSection from './components/quotes-section';
 import HouseSection from './components/houses-section';
+import { BLACK } from './utils/constants';
 
 const Container = styled.div`
-  background-color: rgb(20 20 20);
-  width: 100vw;
-  height: 100vh;
+height: 100%;
+width: 100%;
 `;
 
 const Header = styled.header`
+background-color: ${BLACK};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +26,6 @@ const HeaderText = styled.h1`
 
 function App() {
   const fetchIntialState = useStore(useCallback(state => state.fetchIntialState, []));
-  const housesAndQuotes = useStore(state => state.housesAndQuotes)
 
   useEffect(() => {
     fetchIntialState()
@@ -35,15 +33,18 @@ function App() {
 
   return (
     <Container>
+      <head>
+        <title>Game of Quotes</title>
+      </head>
       <Header>
         <HeaderText>Game of Quotes</HeaderText>
       </Header>
-      <main className="App">
+      <main className='App'>
         <QuotesSection />
         <HouseSection />
       </main>
       <footer></footer>
-    </ Container >
+    </Container>
   );
 }
 
