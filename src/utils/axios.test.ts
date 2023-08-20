@@ -34,7 +34,7 @@ describe('getHousesList', () => {
   it("checks if API rejects with error message", async () => {
 
     axiosMock.get.mockImplementationOnce(() => Promise.reject());
-    await expect(getHousesList()).rejects.toEqual(API_ERROR);
+    await expect(getHousesList()).rejects.toThrow(API_ERROR);
     expect(axiosMock.get).toHaveBeenCalled();
   });
 
