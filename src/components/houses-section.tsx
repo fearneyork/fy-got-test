@@ -78,8 +78,8 @@ interface MembersSectionProps {
 const HouseBanner = ({ house }: MembersSectionProps) => {
   return (
     <HouseBannerContainer>
-      <HouseBannerImage src={`${findSigilBySlug(house.slug)}`} />
-      <HouseName>{house.name}</HouseName>
+      <HouseBannerImage src={`${findSigilBySlug(house.slug)}`} aria-label={`${house.slug} banner`} />
+      <HouseName aria-label={`${house.slug} house name`}>{house.name}</HouseName>
     </HouseBannerContainer>
 
   )
@@ -90,7 +90,7 @@ const MembersSection = ({ house }: MembersSectionProps) => {
     <MemberContainer>
       {house.members.map((member: THouseMember) => (
         <MembersContainer>
-          <MemberName>{member.name}</MemberName>
+          <MemberName aria-label={`${member.slug} section`}>{member.name}</MemberName>
           {member.quotes?.map((quote) => (
             <MemberQuote>{quote}</MemberQuote>
           ))}
@@ -105,8 +105,8 @@ const HouseSection = () => {
   return (
     <HousesContainer>
       {housesAndQuotes?.map((house) => (
-        <HouseContainer>
-          <HouseBanner house={house} />
+        <HouseContainer aria-label={`${house.slug} section`}>
+          <HouseBanner house={house} aria-label={`${house.slug} banner`} />
           <MembersSection house={house} />
         </HouseContainer>
       ))}

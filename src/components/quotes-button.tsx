@@ -15,6 +15,6 @@ export const QuoteButton = () => {
   const getRandomQuote = useStore((state) => state.getRandomQuote)
 
   return (
-    <Button onClick={() => { getRandomQuote() }}>Get Random Quote</Button>
+    <Button aria-label='get random quote button' onClick={() => { getRandomQuote() }}>Get Random Quote</Button>
   )
 }

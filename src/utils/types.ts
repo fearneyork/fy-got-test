@@ -71,8 +71,6 @@ export type THouseMember = {
   quotes?: string[];
 };
 
-// export type THouseMemberWithQuotes = THouseMember & { quotes?: string[] };
-
 export type TRandomQuote = {
   sentence: string;
   character: {
@@ -90,9 +88,3 @@ export type THousesList = {
   name: THouseName;
   members: THouseMember[];
 }[];
-
-// export type THouseState = {
-//   slug: THouseSlug;
-//   name: THouseName;
-//   members: THouseMemberWithQuotes[];
-// }[];

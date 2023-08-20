@@ -4,19 +4,11 @@ import { CurrentRandomQuote } from "./current-random-quote";
 
 const QuoteSection = styled.section``;
 
-// const SubheaderText = styled.h2`
-//   font-family: GameOfThrones;
-//   color: rgb(230 230 230);
-//   align-self: center;
-// `;
-
 const QuotesSection = () => {
   return (
     <QuoteSection>
-      <CurrentRandomQuote />
-      <QuoteButton />
-      {/* <SubheaderText>Quote section</SubheaderText> */}
-
+      <CurrentRandomQuote aria-label='current random quote' />
+      <QuoteButton aria-label='press me to get a new random quote' />
     </QuoteSection>
   )
 };

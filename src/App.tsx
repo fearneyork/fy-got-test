@@ -33,9 +33,6 @@ function App() {
 
   return (
     <Container>
-      <head>
-        <title>Game of Quotes</title>
-      </head>
       <Header>
         <HeaderText>Game of Quotes</HeaderText>
       </Header>
