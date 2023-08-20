@@ -8,7 +8,7 @@ export const getRandomQuote = async (): Promise<TRandomQuote> => {
     const res = await axios.get<TRandomQuote>(`${BASE_URL}/random`)
     return res?.data;
   } catch (error) {
-    throw API_ERROR;
+    throw new Error(API_ERROR);
   };
 };
 
@@ -17,6 +17,6 @@ export const getHousesList = async (): Promise<THousesList> => {
     const res = await axios.get<THousesList>(`${BASE_URL}/houses`)
     return res?.data;
   } catch (error) {
-    throw API_ERROR;
+    throw new Error(API_ERROR);
   };
 };

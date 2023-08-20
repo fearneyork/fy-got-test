@@ -17,7 +17,7 @@ describe('getRandomQuote', () => {
   it("checks if API rejects with error message", async () => {
 
     axiosMock.get.mockImplementationOnce(() => Promise.reject());
-    await expect(getRandomQuote()).rejects.toEqual(API_ERROR);
+    await expect(getRandomQuote()).rejects.toThrowError(API_ERROR);
     expect(axiosMock.get).toHaveBeenCalled();
   });
 
@@ -34,7 +34,7 @@ describe('getHousesList', () => {
   it("checks if API rejects with error message", async () => {
 
     axiosMock.get.mockImplementationOnce(() => Promise.reject());
-    await expect(getHousesList()).rejects.toThrow(API_ERROR);
+    await expect(getHousesList()).rejects.toThrowError(API_ERROR);
     expect(axiosMock.get).toHaveBeenCalled();
   });
 
