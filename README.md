@@ -35,7 +35,7 @@ Use semantic HTML elements and apply any applicable accessibility attributes to 
 All in all I think I managed to acheive most of the goals set out including the Bonus goals.
 I'm mostly familiar with working with accessibilty on React-Native projects, which is a little different to web-apps. This is something I'd love to improve on the app, and why I put yes/no for completed, I think I was able to attempt a start at this, but I'm not fully satisfied with it.
 
-I'd love to implement further error handling in this project, with further design work I think there could be fun ways to handle showing errors to users, themed along the lines of Game of Thrones. As well as this, I'd implement auto fetching new quotes on duplication, I've not had it happen through manual testing yet, but it's not impossible!
+I'd love to implement good error handling in this project, with further design work I think there could be fun ways to handle showing errors to users, themed along the lines of Game of Thrones. As well as this, I'd implement auto fetching new quotes on duplication, I've not had it happen through manual testing yet, but it's not impossible!
 
 The styling is far from what I'd call done, but in an effort to stop myself getting sucked into styling it to the nines, I stopped with where I was at. It does it's job!
 
@@ -43,11 +43,11 @@ As a bigger project I would lean into better compartmentalisation of components 
 
 If I was to spend more time on this project I would most likely mock up wireframes and designs for the app. I think it would help me create a leaner and more efficient way of designing the app.
 
-With it being an MVP version of a project like this I opted to go lighly on testing. I tested the Axios calls I wrote as they are what the app relies most heavily on. Given a little more time I would test the data transformer functions next.
+With it being an MVP version of a project like this I opted to go lighly on testing. I tested the Axios calls I wrote as they are what the app relies most heavily on. Given a little more time I'd most likely implement tests using [nock](https://github.com/nock/nock) for the API calls and then would test the data transformer functions next.
 
-As previously mentioned, I used Create React App as a way to bootstrap this project. unfortunately this method of bootstrapping a project is quite bloated. If this was a longer term project, I would consider other options like Next.js, if the product requirements matched up with any additional features.
+As previously mentioned, I used Create React App as a way to bootstrap this project. Unfortunately this method of bootstrapping a project is quite bloated. If this was a longer term project, I would consider other options like Next.js, if the product requirements matched up with any additional features.
 
-I knew I wanted to implement state management in the app. However I wanted to avoid Redux like the plague, I find it a really heavy handed way of managing state. And I also think the React Context API is a bit outdated. I opted to use [Zustand](https://github.com/pmndrs/zustand) instead, I have only used Zustand once before this project on another tech test, and really liked the lightness of it as a state manager.
+I knew I wanted to implement state management in the app. However I wanted to avoid Redux like the plague, I find it a really heavy handed way of managing state. And I also think the React Context API is a bit outdated. I opted to use [Zustand](https://github.com/pmndrs/zustand) instead, I have only used Zustand once before this project on another tech test, and really liked the lightness of it as a state manager, but also how it could grow to support more complex state management than the context api, but with less bloat than redux.
 
 The brief didn't call for it but I figured it made sense to put a hosted version of the app up on Netlify, given how easy it is to deploy it. I thought it was a nice extra goal to set myself. I think it helps it feel like a slightly more finished project, (even though it's not!)
 
