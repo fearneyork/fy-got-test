@@ -41,7 +41,7 @@ The styling is far from what I'd call done, but in an effort to stop myself gett
 
 As a bigger project I would lean into better compartmentalisation of components and/or using a component library with tests to ensure the UI is as expected. However out of habit I used styled-compoents to write CSS-in-JS, as this is what I'm familiar with day-to-day, this was just to be able to help me hit the ground running and quickly prototype styling.
 
-If I was to spend more time on this project I would most likely mock up wireframes and designs for the app. I think it would help me create a leaner and more efficient way of designing the app.
+If I was to spend more time on this project I would most likely mock up wireframes and designs for the app. I think it would help me create a leaner and more efficient way of designing the app. I would also approach the design of this in a mobile first way, which is something I had to trade off in the inbterest of not spending too much more time on the project.
 
 With it being an MVP version of a project like this I opted to go lighly on testing. I tested the Axios calls I wrote as they are what the app relies most heavily on. Given a little more time I'd most likely implement tests using [nock](https://github.com/nock/nock) for the API calls and then would test the data transformer functions next.
 
